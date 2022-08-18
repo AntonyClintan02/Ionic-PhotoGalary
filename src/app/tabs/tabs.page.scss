@@ -1,1 +1,127 @@
 
+
+  .close-navbar-toggler{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    z-index:1;
+    cursor:pointer;
+  }
+  .close-navbar-toggler.collapsed{
+    z-index:-1;
+  }
+#navbar {
+  background:linear-gradient(90deg, #ff9a9e 0%, #fad0c4 100%);
+  padding: 30px 10px; /* Large padding which will shrink on scroll (using JS) */
+  transition: 0.4s; /* Adds a transition effect when the padding is decreased */
+  position: fixed; /* Sticky/fixed navbar */
+  width: 100%;
+  top: 0; /* At the top */
+  z-index: 100;
+  display: inline-flex;
+
+}
+
+/* Style the navbar links */
+#navbar a {
+  float: left;
+  color: #e91e63;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 25px;
+  transition-duration: 0.4s;
+  font-weight: bold;
+}
+/* Style the logo */
+#navbar #brand {
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.4s;
+  color: white;
+}
+
+/* Links on mouse-over */
+#navbar a:hover {
+  transition-duration: 0.4s;
+  color:  white;
+}
+
+/* Style the active/current link */
+#navbar a.active {
+  color:  white;
+}
+
+
+.form-control {
+    border-radius: 3px;
+    margin-left: 20px;
+  }
+
+
+  .offcanvas{
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: .25rem;
+  }
+  .card{
+    max-width: 540px;
+    margin: 5px;
+  }
+  .card-title{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100ch;
+  }
+  .card-text{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100ch;
+  }
+  .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .center img{
+    width: 300px;
+  }
+
+  .center .btn {
+    font-size: 14px !important;
+    margin-top: 20px !important;
+    font-weight: 400;
+    padding: 12px 52px;
+    border-radius: 3px !important;
+  }
+
+  a{
+    color:  white;
+  }
+
+
+  #btn1,#btn2{
+    color:#e91e63;
+  }
+
+  #btn1:hover{
+    color: white;
+    transition-duration: .4s;
+    background-color:#e91e63;
+  }
+
+
+  #btn2:hover{
+    color: white;
+    transition-duration: .4s;
+    background-color:#e91e63;
+  }
