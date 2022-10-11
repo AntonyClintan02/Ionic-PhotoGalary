@@ -1,17 +1,195 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Capacitor Plugins
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div class="container mt-5">
+    <h5>Action Sheet:</h5>
+    <ion-button (click)="showActions()">Action Sheet</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>App Launcher:</h5>
+    <ion-button (click)="checkCanOpenUrl()">Check URL</ion-button>
+    <ion-button (click)="openPortfolioPage()">Open URL</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Browser:</h5>
+    <ion-button (click)="openCapacitorSite()">open site</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Camera:</h5>
+    <ion-button (click)="takePicture()">take Picture</ion-button>
+    <ion-button (click)="getPhotos()">get Photos</ion-button>
+
+    <div *ngIf="!photos.length">
+      <ion-img id="img"></ion-img>
+    </div>
+
+    <ion-grid>
+      <ion-row *ngIf="photos.length">
+        <ion-col size="3" *ngFor="let photo of photos; index as position">
+          <ion-img [src]="photo.webPath"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+
+  <div class="container mt-5">
+    <h5>Clipboard:</h5>
+    <ion-button (click)="writeToClipboard()">write Clipboard</ion-button>
+    <ion-button (click)="checkClipboard()">Check Clipboard</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Cookies:</h5>
+    <ion-button (click)="getCookies()">Get Cookies</ion-button>
+    <ion-button (click)="setCapacitorCookie()">Set Cookie</ion-button>
+    <ion-button (click)="deleteCookie()">Delete Cookie</ion-button>
+    <ion-button (click)="clearCookiesOnUrl()">Clear Cookie</ion-button>
+    <ion-button (click)="clearAllCookies()">Clear All Cookies</ion-button>
+  </div>
+  
+  <div class="container mt-5">
+    <h5>Device:</h5>
+    <ion-button (click)="logDeviceInfo()">DeviceInfo</ion-button>
+    <ion-button (click)="logBatteryInfo()">BatteryInfo</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Dialog:</h5>
+    <ion-button (click)="showAlert()">Show Alert</ion-button>
+    <ion-button (click)="showConfirm()">Show Confirm</ion-button>
+    <ion-button (click)="showPrompt()">Show Prompt</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Filesystem:</h5>
+    <ion-button (click)="writeSecretFile()">write File</ion-button>
+    <ion-button (click)="readSecretFile()">Read File</ion-button>
+    <ion-button (click)="deleteSecretFile()">Delete File</ion-button>
+    <ion-button (click)="readFilePath()">Read Filepath</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Geolocation:</h5>
+    <ion-button (click)="printCurrentPosition()">get position</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Google Map:</h5>
+    <ion-button (click)="getGooleMap()">get Map</ion-button>
+    <div *ngIf="maptrigger">
+      <capacitor-google-map #map></capacitor-google-map>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Haptics:</h5>
+    <ion-button (click)="hapticsImpactMedium()">hapticsImpactMedium</ion-button>
+    <ion-button (click)="hapticsImpactLight()">hapticsImpactLight</ion-button>
+    <ion-button (click)="hapticsVibrate()">hapticsVibrate</ion-button>
+    <ion-button (click)="hapticsSelectionStart()">hapticsSelectionStart</ion-button>
+    <ion-button (click)="hapticsSelectionChanged()">hapticsSelectionChanged</ion-button>
+    <ion-button (click)="hapticsSelectionEnd()">hapticsSelectionEnd</ion-button>
+    <ion-button (click)="hapticsNotification()">Notification</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>HTTP:</h5>
+    <ion-button (click)="doGet()">Get</ion-button>
+    <ion-button (click)="doPost()">Post</ion-button>
+    <ion-button (click)="doPut()">Put</ion-button>
+    <ion-button (click)="doDelete()">Delete</ion-button>
+    <ion-button (click)="doPatch()">Patch</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Keyboard:</h5>
+    <ion-button (click)="keyboard()">keyboard</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Notifications:</h5>
+    <ion-button (click)="getPending()">Pending</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Motion:</h5>
+    <ion-button (click)="motionEvent()">StartAcceleration</ion-button>
+    <ion-button (click)="stopAcceleration()">stopAcceleration</ion-button>
+    <ion-button (click)="removeListeners()">removeListeners</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Network:</h5>
+    <ion-button (click)="logCurrentNetworkStatus()">CurrentStatus</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Network:</h5>
+    <ion-button (click)="setName()">SetName</ion-button>
+    <ion-button (click)="checkName()">Check Name</ion-button>
+    <ion-button (click)="removeName()">Remove Name</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Push Notification:</h5>
+    <ion-button (click)="addListeners()">addListeners</ion-button>
+    <ion-button (click)="registerNotifications()">registeresNotification</ion-button>
+    <ion-button (click)="getDeliveredNotifications()">deliveredNotification</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Screen Reader:</h5>
+    <ion-button (click)="checkScreenReaderEnabled()">Check screenReader</ion-button>
+    <ion-button (click)="sayHello()">Set ScreenReader</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Share:</h5>
+    <ion-button (click)="share()">Share</ion-button>
+  </div>
+
+
+  <div class="container mt-5">
+    <h5>Splashscreen:</h5>
+    <ion-button (click)="splashShow()">splashShow</ion-button>
+    <ion-button (click)="splashHide()">splashHide</ion-button>
+    <ion-button (click)="splashShowAutoHide()">splashShowAutoHide</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>StatusBar:</h5>
+    <ion-button (click)="setStatusBarStyleDark()">set Dark</ion-button>
+    <ion-button (click)="setStatusBarStyleLight()">set light</ion-button>
+    <ion-button (click)="hideStatusBar()">Hide</ion-button>
+    <ion-button (click)="showStatusBar()">show</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>TextZoom:</h5>
+    <ion-button (click)="getTextSize()">get Textzoom</ion-button>
+    <ion-button (click)="setTextSize()">set Textzoom</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Toast:</h5>
+    <ion-button (click)="showHelloToast()">show</ion-button>
+  </div>
+
+  <div class="container mt-5">
+    <h5>Brightness:</h5>
+    <ion-button (click)="setBrightness()">set</ion-button>
+    <ion-button (click)="getBrightness()">get</ion-button>
+  </div>
+
 </ion-content>
